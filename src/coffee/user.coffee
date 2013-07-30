@@ -1,6 +1,6 @@
 class UserData
 	accessToken:null
-	template:window.Handlebars.templates.user_login
+	template:window.reedify.templates.user_login
 	
 	constructor: () ->
 		if Cookies.get( 'reedify.accessToken' )

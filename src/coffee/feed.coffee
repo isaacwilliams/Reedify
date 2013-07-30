@@ -1,13 +1,13 @@
 app = window.app
 
 class FeedItem
-	template:window.Handlebars.templates.feed_item
+	template:window.reedify.templates.feed_item
 	readChanged:false
 	
 	constructor: ( data, feed ) ->
 		@feed = feed
 		$.extend this, data
-		if data.end then @template = window.Handlebars.templates.feed_item_end
+		if data.end then @template = window.reedify.templates.feed_item_end
 	
 	select:()->
 		if not @readChanged then @setRead true
@@ -65,7 +65,7 @@ class FeedItem
 	
 class FeedItemList
 	el:"#feed"
-	template:window.Handlebars.templates.feed_item_list
+	template:window.reedify.templates.feed_item_list
 	
 	read:"false"
 	starred:null

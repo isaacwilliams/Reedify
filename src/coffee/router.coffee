@@ -139,7 +139,7 @@ class AppRouter
 	
 	showAbout:()->
 				
-		$changesPopup = $ window.Handlebars.templates.popup_about()
+		$changesPopup = $ window.reedify.templates.popup_about()
 		$('body').append $changesPopup
 		$('body').addClass 'noscroll'
 		

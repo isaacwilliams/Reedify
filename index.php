@@ -6,11 +6,8 @@
 		
 		<title>☀ Reedify</title>
 		
-		<script src="/lib/vendor/vendor.js" type="text/javascript" charset="utf-8"></script>
-								
-		<script src="/lib/template.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/feeder.js" type="text/javascript" charset="utf-8"></script>
-		<link href="/style.css" rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8">
+		<script src="/lib/reedify.min.js" type="text/javascript" charset="utf-8"></script>
+		<link href="/lib/style.css" rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8">
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		

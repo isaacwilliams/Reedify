@@ -1,6 +1,6 @@
 class Navigation
-	template:window.Handlebars.templates.nav
-	templateStreams:window.Handlebars.templates.nav_streams
+	template:window.reedify.templates.nav
+	templateStreams:window.reedify.templates.nav_streams
 	constructor:()->
 		
 	render:()->
