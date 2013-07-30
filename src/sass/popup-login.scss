@@ -1,0 +1,107 @@
+div#login-popup{
+	
+	div.app-version{
+		position: fixed;
+		top: 1.0em;
+		right: 1.0em;
+		color: white;
+		text-shadow: 1px 1px 1px black;
+		font-size: 0.8em;
+		line-height: 1.2em;
+		opacity: 1.0;
+		font-weight: bold;
+		-webkit-font-smoothing: antialiased;
+		text-align: right;
+		
+		a{
+			color: white;
+			&:hover{
+				color: $color_alert;
+			}
+		}
+		
+	}
+	
+	div.title{
+		margin: 1em 0;
+		// text-align: center;
+		div.app-title{
+			margin-bottom: 0;
+			margin-top: 0;
+			margin-left: 1.4em;
+			font-size: 3em;
+		}
+	}
+	div.group.login{
+		margin-top: 3em;
+		input[type='email']{
+			width: 100%;
+			padding: 0.5em;
+			display: block;
+			margin: 0.5em 0;
+			@include box-sizing(border-box);
+		}
+		input[type='password']{
+			width: 100%;
+			padding: 0.5em;
+			display: block;	
+			margin: 0.5em 0;
+			@include box-sizing(border-box);
+		}
+		input[type='submit']{
+			width: 100%;
+			padding: 0.5em;
+			display: block;	
+			margin: 0.5em 0;
+			@include box-sizing(border-box);
+		}
+			
+	}
+	div.group{
+		margin-left: 1.4em * 3;
+		margin-right: 1.4em * 3;
+	}
+	
+	input[type='submit']{
+		padding: 0.2em 1em;
+	}
+	
+	div.content{
+		margin-top: 0em;
+	}
+	
+}
+div#login-popup.loading{
+	
+	div.content{
+		
+		div.loader{ 
+			display: block;
+		}
+
+		div.group.login{
+			input[type='submit']{
+				display: none;
+			}		
+		}
+		div.error{
+			display: none;
+		}
+		
+	} 
+}
+
+@include keyframes( login-popup-show ){
+	0%{
+		@include transform( scale(0.5) );
+		opacity: 0;
+	}
+	40%{
+		@include transform( scale(1.05) );	
+	}
+	100% {
+
+		@include transform( scale(1) );
+		opacity: 1;		
+	}	
+}

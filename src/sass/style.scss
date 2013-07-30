@@ -1,0 +1,405 @@
+@import 'bourbon/bourbon';
+@import 'vars';
+
+
+body {
+	background: $color_background;
+	font-size: 16px;
+	line-height: 1.5em;
+	font-family: $font_family;
+	font-weight: 200;
+	letter-spacing: 0.01em;
+	padding: 0;
+	margin: 0;
+	
+}
+body.noscroll{
+	overflow: hidden;
+}
+
+a{
+	color: $color_unread;
+	&:hover{
+		color: black;
+	}
+}
+
+@import 'nav';
+@import 'popup';
+
+@import 'popup-login';
+@import 'popup-stream';
+
+div#feed-container{
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	left: $nav_width;
+	// @include transition( left 0.15s ease-in-out );
+	
+	div#feed{
+		position: relative;
+		
+		div.item-list{
+			position: relative;
+			padding: 1em;
+		
+		}
+		
+	}
+	
+	div#feed.loading{
+		div.loader{
+			display: block;
+		}
+	}
+	
+}
+
+div.loader{
+	position: fixed;
+	bottom: 2em;
+	right: 2em;
+	padding: 0.5em 1em 0.5em 3em;
+	background: rgba(255,255,255,1);
+	border: 1px solid $color_background;
+	z-index: 9999999;
+	display: none;
+			
+	span{
+		top: 0.25em;
+		left: 0.4em;
+		position: absolute;
+		display: inline-block;
+		color: $color_current;
+		font-size: 1.8em;
+		line-height: 1em;
+		@include animation( rotate 2.0s linear infinite );
+	}			
+}
+
+div.item {
+	// border-radius: 0.25em;
+	margin: 1em 0;
+	padding: 1em 1em;
+	
+	border-color: $color_read;
+	background:rgb( 255, 255, 255 );
+	overflow: hidden;
+	
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	
+	&:first-of-type{
+		margin-top: 0;
+	}
+	
+	a{
+		color: $color_read;
+		&:hover{
+			color: black;
+		}
+	}
+	
+	header {
+		
+		@include clearfix;
+		
+		div.status {
+			float: left;
+			font-size: 1.2em;
+			color: $color_read;
+						
+			div.read-status {
+				float: left;
+				margin-right: 0.6em;
+				cursor: pointer;
+				&:hover{
+					color: black;
+				}
+				&:before {
+					content: $icon_read;
+				}
+				
+			}
+			div.star-status {
+				float: left;
+				margin-right: 0.6em;
+				cursor: pointer;
+				&:before {
+					content: $icon_unstarred;				
+				}
+				&:hover{
+					color: black;
+				}
+			}
+			
+		}
+		div.meta{
+			float: right;
+			font-size: 0.8em;
+			text-align: right;
+			margin-left: 1em;
+			
+						
+			div.time{
+				display: block;
+				text-align: left;
+				position: relative;
+				float: right;
+				
+				div.date{
+					position: absolute;
+					display: none;
+					right: 0;
+					top: 0;
+					padding: 0.1em 0.5em;
+					background: $color_background + #0a0a0a;
+					white-space: nowrap;
+				}
+				div.friendly{
+					padding: 0.1em 0.5em;
+					background: $color_background;
+					white-space: nowrap;
+				}
+				
+				&:hover{
+					div.date{ display: block; }
+				}				
+				
+			}
+			
+			a.feed-name{
+				display: block;
+				text-align: right;
+				color: $color_read;
+				position: relative;
+				text-decoration: none;
+				float: right;
+				
+				span.title{
+					display: block;			
+					right: 2em;
+					background: $color_background;
+					padding: 0.1em 0.5em;
+					text-align: left;
+					float: left;
+					max-width: 15em;
+					overflow: hidden;
+					text-overflow: ellipsis;		
+					white-space: nowrap;
+				}
+				img{
+					width: 16px;
+					height: 16px;
+					padding: 0.4em;
+					background: $color_background;
+				}
+				
+				&:hover{
+					span.title{
+						background: $color_background + #0a0a0a;
+					}
+					img{
+						background: $color_background + #0a0a0a;
+					}
+				}
+			}
+			
+			
+		}
+			
+		div.title {
+			font-weight: 600;
+			font-size: 1.5em;
+		}
+		
+		
+		div.author{
+			display: inline-block;
+			font-weight: 200;
+			color: $color_nav_text;
+			font-size: 0.6em;	
+			letter-spacing: 0.05em;
+			&:before{
+				content: '–';
+				margin: 0 0.25em;
+			}	
+		}
+		
+	}
+	
+	div.content {
+		margin-top: 1em;
+		font-weight: normal;
+		// display: none;
+		// letter-spacing: 0.02em;
+		
+		img{
+			max-width: 100%;
+		}
+		
+	}
+	
+}
+div.item.unread{
+	border-color: $color_unread;
+	a{
+		color: $color_unread;
+		&:hover{
+			color: black;
+		}
+	}
+	
+	div.status{
+		color: $color_unread;
+		div.read-status {
+			&:before {
+				content: $icon_unread;
+			}
+		}
+	}	
+}
+
+@include keyframes(bounce){
+	0%{
+		@include transform( scale( 1.0 ) );
+	}
+	25%{
+		@include transform( scale( 3.0 ) );
+	}
+	75%{
+		@include transform( scale( 0.7 ) );
+	}
+	80%{
+		@include transform( scale( 0.9 ) );
+	}
+	100%{
+		@include transform( scale( 1.0 ) );
+	}
+}
+
+div.item.starred{
+	
+	div.status{	
+		div.star-status {
+			&:before {
+				content: $icon_starred;
+				color: $color_star;
+			}
+		}
+	}
+	
+}
+
+div.item.starred.setManual{
+	div.status{	
+		div.star-status {
+			@include animation( bounce 0.3s linear );
+		}
+	}
+}
+
+div.item.current{
+	
+	box-shadow: -0.4em 0 0 $color_current;
+	
+	div.status{
+ 		color: $color_current;	
+ 	}
+ 	
+ 	a{
+ 		color: $color_current;
+ 		&:hover{
+ 			color: black;
+ 		}
+ 	}	
+}
+
+div.item.end{
+	div.content{
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		font-size: 2em;
+		font-weight: 100;
+		text-align: center;
+		color: black;
+	}
+}
+
+@media only screen and ( max-width:em(900 ) ){
+	div.item{
+		
+		header {
+			div.meta{			
+				a.feed-name{
+					span.title{ display: none; }
+					&:hover{
+						span.title{ 
+							position: absolute;
+							top: 0;
+							right: 2em;
+							width: 8em;
+							display: block;
+							z-index: 999;
+						}					
+					}
+				}
+			}
+		}		
+		
+	}
+}
+
+@media only screen and (min-width:em( 401 )) and ( max-width:em( 780 ) ){
+	div#nav-container{
+		width: 10em;
+		font-size: 0.95em;
+		
+		form.add-feed{
+			input.add-feed{
+				width: 8em;
+			}
+		}
+		
+	}
+	div#feed-container{
+		left: 9.5em;
+	}
+}
+
+@media only screen and ( max-width:em( 400 ) ){
+	div#nav-container{
+		@include clearfix;
+		
+		width: 100%;
+		top: 0;
+		height: 3em;
+		position: absolute;
+		border-bottom: 1px solid $color_background - rgb(10, 10, 10 );
+		
+		div.app-title{
+			span{ display: none; }	
+			float: left;		
+		}
+		div.title{
+			display: none;
+		}
+		nav{
+			margin: 0.8em 0;
+			float: right;
+			ul{
+				@include clearfix;
+				li{
+					float: left;
+					margin-right: 1em;
+				}
+			}
+		}
+		
+	}
+	div#feed-container{
+		top: 3em;
+		left: 0em;
+	}
+}

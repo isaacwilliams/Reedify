@@ -1,0 +1,21 @@
+<div id='stream-edit' class='popup'>
+	
+	<div class='stream-edit content' >
+		
+		<a href='#' class='close-button'>Close</a>
+		<h1>Manage Feed Subscriptions</h1>
+		
+		<ul class='feed-list'>
+			{{#each feeds}}
+			<li class='list-feed-item' id="feed-{{feed_id}}">
+				
+				<a href="#" class='feed-unsubscribe' rel='{{feed_id}}'>Unsubscribe</a>
+				<a href="/feed/{{feed_id}}" class='reedControl site-name'>{{title}}</a>
+				<a href="{{site_url}}" target="_blank" class='site-url'>{{site_url}}</a>
+				
+			</li>
+			{{/each}}
+		</ul>
+		
+	</div>
+</div>

@@ -1,0 +1,91 @@
+div#stream-edit{
+	
+	div.include-only{
+		margin: 0.8em 0;
+		display: block;
+		
+		div.title{
+			color: $color_read;
+			
+			div.filter{
+				margin-left: 1em;
+				font-size: 0.8em;
+				float: right;
+			}			
+		}
+				
+	}
+	div.include-only.hide{
+		display: none;
+	}
+	
+	
+	ul.feed-list{
+		list-style: none;
+		padding: 0 0.5em;
+		li{
+			margin: 1em 0;
+			display: block;
+			
+			label{
+				display: block;
+			}
+			
+			@include clearfix;
+			
+			.item-pre{
+				float: left;
+			}
+			.item-content{
+				float: left;
+				width: 90%;
+				margin-left: 0.5em;
+			}
+			
+			.site-name{
+				font-weight: bold;
+				text-decoration: none;
+				color: $color_read;
+				margin-right: 2em;
+				overflow-x: hidden;
+				display: block;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			a.site-name{
+				&:hover{
+					color: black;
+				}
+			}
+			a.site-url{
+				color: $color_nav_text;
+				font-size: 0.8em;
+				line-height: 0.8em;
+				&:hover{
+					color: black;
+				}
+			}
+			a.feed-unsubscribe{
+				font-size: 0.8em;
+				padding: 0.1em 0.5em;
+				color: $color_alert;
+				text-decoration: none;
+				float: right;
+				&:before{
+					content: '✕';
+					margin-right: 0.5em;
+					margin-left: 0.5em;
+				}
+				&:hover{
+					color: black;
+				}
+			}
+			
+		}
+		li.hide{
+			display: none;
+		}
+	}
+	
+			
+}

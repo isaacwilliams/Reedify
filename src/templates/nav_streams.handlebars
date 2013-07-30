@@ -1,0 +1,16 @@
+{{#each streams}}
+	<li>
+		<a href="/stream/{{stream_id}}" rel='{{stream_id}}' class='reedControl stream stream_{{stream_id}}'>{{title}}</a>
+		<a href="#" class='edit-stream edit-stream_{{stream_id}}' rel='{{stream_id}}'>Edit</a>
+		<ul class='feeds'>
+			{{#each feeds}}
+			<li>
+				<a href="/feed/{{feed_id}}" rel='{{feed_id}}' class='reedControl feed feed-name feed_{{feed_id}}'>
+					<img src="http://www.google.com/s2/favicons?domain={{site_url}}" alt="" />
+					<span class='title'>{{title}}</span>
+				</a>
+			</li>
+			{{/each}}
+		</ul>
+	</li>
+{{/each}}

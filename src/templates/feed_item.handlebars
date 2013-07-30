@@ -1,0 +1,33 @@
+<div class='item {{#unless read}}unread{{/unless}} {{#if starred}}starred{{/if}}' >
+	<header>
+		<div class='status'>
+			<div class='star-status'></div>
+			<div class='read-status'></div>
+		</div>
+		
+		<div class='meta'>
+			
+			<a class='reedControl feed-name' href='/feed/{{feed_id}}' rel='{{feed_id}}'>
+				<span class='title'>{{feed_name}}</span>
+				<img src="http://www.google.com/s2/favicons?domain={{site_url}}" alt="" />
+			</a>
+
+			<div class='time'>
+				<div class='date'>
+					{{date published_at}}
+				</div>
+				<div class='friendly'>
+					{{date_friendly published_at}}
+				</div>				
+			</div>
+								
+		</div>
+		
+		<div class='title'>
+			<a href="{{url}}" target="_blank">{{title}}</a>
+			{{#if author}}<div class='author'>{{author}}</div>{{/if}}
+		</div>	
+				
+	</header>
+	<div class='content'>{{{body}}}</div>	
+</div>

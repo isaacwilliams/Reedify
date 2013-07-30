@@ -1,0 +1,52 @@
+<div id='nav-container'>
+	
+	<div class='app-title'>
+		<span>Reedify</span>
+	</div>
+	
+	<nav class='types'>
+		<div class='title'>Show:</div>
+		<ul>
+			<li>
+				<a href="/" class='reedControl unread'>Unread</a>
+			</li>
+			<li>
+				<a href="/starred" class='reedControl starred'>Starred</a>
+			</li>
+			<li>
+				<a href="/all" class='reedControl all'>All Items</a>
+			</li>
+		</ul>
+	</nav>
+	<nav class='streams'>
+		<div class='title'>
+			Stream:
+			<a href="#" class='create-stream edit-stream'>+ Create</a>
+		</div>
+		<ul class='streams'>
+	
+		</ul>
+	</nav>		
+	<nav class='feeds' style="display:none;">
+		<ul>
+			<li>
+				<form class='add-feed'>
+					<div class='loader'><span>☀</span>&nbsp;</div>	
+					<input name='url' class='add-feed' type='text' placeholder='Subsribe to feed' />
+					<div class='success'>Subscribed</div>
+					<div class='error'>Failed to subscribe to feed</div>
+				</form>
+			</li>
+			<li><a href='/feeds' class='manage-feeds' >Manage feeds</a></li>
+		</ul>
+	</nav>
+	<nav class='options'>
+
+		<ul>
+			<li><a href='/logout' class='reedControl logout' >Log out</a></li>
+		</ul>
+		
+	</nav>
+	
+</div>	
+	

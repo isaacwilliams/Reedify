@@ -1,0 +1,30 @@
+$color_read: rgb(100, 100, 100);
+$color_unread: rgb( 12, 0, 255 );
+$color_current: rgb( 255, 100, 0 );
+$color_star: rgb( 255, 211, 0 );
+$color_background: rgb( 230, 230, 230 );
+
+$color_nav_bg: rgb( 255, 255, 255 );
+$color_nav_text: rgb( 180, 180, 180 );
+$color_nav_not_selected: rgb( 100, 100, 100 );
+
+$color_alert: rgb( 255, 50, 0 );
+$color_button: rgb( 40, 230, 160 );
+
+$font_family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$nav_width: 15em;
+
+$icon_unread: '◎';
+$icon_read: '◉';
+$icon_starred: '★';
+$icon_unstarred: '☆';
+
+@include keyframes(rotate) {
+	from {
+		@include transform(rotate(0deg));
+	}
+	to {
+		@include transform(rotate(360deg));
+	}
+}

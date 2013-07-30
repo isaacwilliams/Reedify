@@ -1,0 +1,264 @@
+div.app-title{
+	color: black;
+	margin: 0.5em 0.5em;
+	margin-left: 2em;
+	font-size: 1.5em;
+	font-weight: 100;
+	letter-spacing: 0.1em;
+	position: relative;
+	&:before{
+		position: absolute;
+		left: -1.2em;
+		content: '☀';
+		color: $color_current;
+		font-size: 1.2em;
+		margin-right: 0.25em;
+	}
+}
+
+div#nav-container{
+	
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: $nav_width;
+	color: $color_nav_text;
+	background: $color_nav_bg;
+	border-right: 1px solid $color_background - rgb(10, 10, 10 );
+	overflow-y: scroll;
+	overflow-x: visible;
+	padding-bottom: 2em;
+	-webkit-overflow-scrolling: touch;	
+	
+	> * {
+		-webkit-transform: translate3d(0,0,0);
+	}
+
+	// @include transition( width 0.15s ease-in-out );
+		
+	nav{
+		margin: 1em;
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			li{
+				a{
+					text-decoration: none;
+					color: $color_nav_not_selected;
+					&:before{
+						margin-right: 0.5em;
+						width: 1em;
+						display: inline-block;
+						text-align: center;
+					}
+					&:hover{
+						color: black;
+					}
+				}
+				a.selected{
+					color: $color_current;
+				}
+				
+				span.shortcut{
+					float: right;
+					font-size: 0.7em;
+					color: $color_nav_text;
+				}
+				
+			}
+		}
+	}
+	nav.types{
+		
+		a.unread{
+			&:before{
+				content: $icon_unread;
+			}
+		}
+		a.starred{
+			&:before{
+				content: $icon_starred;
+			}
+		}
+		a.all{
+			&:before{
+				content: $icon_read;
+			}
+		}
+		
+	}
+	
+	a.edit-stream{
+		font-size: 0.7em;
+		float: right;
+		display: inline-block;
+		color: $color_nav_text;
+		text-decoration: none;
+		&:hover{
+			color: black;
+		}
+	}
+	
+	nav.streams{
+		ul.streams{
+			li{
+				position: relative;
+				
+				a.stream:before{
+					content:'❖';
+				}
+				
+				a.edit-stream{
+					display: none;
+				}
+				
+				&:hover{
+					a.edit-stream{
+						display: inline;
+					}
+				}
+				
+				ul.feeds{
+					display: none;
+					margin-left: 1.5em;
+					li{
+						line-height: 1.5em;
+						a.feed-name{
+							display: block;
+							font-size: 0.75em;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							
+							position: relative;
+							
+							span.title{
+								position: absolute;
+								bottom: 0.3em;
+								left: 2em;
+								max-width: 13em;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+								overflow: hidden;
+							}
+							img{
+								width: 16px;
+								height: 16px;
+								margin-right: 0.8em;
+							}
+							&:before{
+								content: none;
+							}			
+						}					
+					}
+				}				
+			}
+			li.expand{
+				ul.feeds{
+					display: block;
+				}
+			}
+		}
+	}
+	
+	nav.options{
+		ul{
+			li{				
+				a.logout{
+					&:before{ content: '✕'; }
+					color: $color_nav_text;
+					&:hover{
+						color: black;
+					}
+				}
+			}
+		}
+	}
+	
+	nav.feeds{
+		ul{
+			li{
+				
+				a.logout{
+					&:before{ content: '✕'; }
+					color: $color_nav_text;
+					&:hover{
+						color: black;
+					}
+				}
+				a.manage-feeds:before{ content: '✳'; }
+				
+				form.add-feed{
+					color: $color_nav_not_selected;	
+					position: relative;				
+					&:before{
+						content: '+';
+						margin-right: 0.0em;
+						width: 1em;
+						display: inline-block;
+						text-align: center;
+					}
+					
+					div.success{
+						color: $color_button;
+						margin-left: 1.9em;
+						font-size: 0.8em;
+						display: none;
+					}
+					div.error{
+						color: $color_alert;
+						margin-left: 1.9em;
+						font-size: 0.8em;
+						display: none;
+					}
+					
+					div.loader{
+						display: none;
+						position: absolute;
+						font-size: 1.0em;
+						margin: 0;
+						padding-right: 0;
+						border: none;
+						
+						top: -0.5em;
+						left: auto;
+						bottom: auto;
+						right: 0;
+					}
+					
+					input{
+						border: none;
+						border-bottom: 1px solid $color_read;
+						font-size: 0.8em;
+						color: $color_read;
+						font-weight: 200;
+						font-family: $font_family;
+						background: rgb( 248, 248, 248 );
+
+					    -webkit-appearance: none;
+						border-radius: 0;
+						
+						outline: none;
+		
+						&:focus{
+							background: rgb( 240, 240, 240 );
+							color: black;
+						}
+					}
+					input.error{
+						border-bottom-color: $color_alert;					
+					}
+					
+				}
+				form.add-feed.loading{
+					div.loader{ display: block; }
+				}
+				
+			}
+		}
+	}
+	
+	
+}

@@ -1,0 +1,90 @@
+<div id='stream-edit' class='popup'>
+	
+	<div class='stream-edit content' >
+		
+		{{#if stream_id}}
+		<h1>Edit Smart Stream</h1>		
+		{{else}}
+		<h1>Create Smart Stream</h1>
+		{{/if}}
+		
+		<form action="/edit_stream/">
+			
+			<input type="hidden" name="stream_id" value='{{#if stream_id}}{{stream_id}}{{/if}}' />
+	
+			<div class='group'>
+				<input name='title' value='{{#if title}}{{title}}{{/if}}' placeholder="Title" class='large' />
+			</div>
+	
+			<div class='group'>
+		
+				<label>
+					<input name='search_term' value='{{#if search_term}}{{search_term}}{{/if}}' placeholder='Search terms' />	
+				</label>
+	
+				<label>
+					<input name='only_unread' type='checkbox' {{#if only_unread}}checked="checked"{{/if}} />
+					Only include unread items
+				</label>
+		
+			</div>
+	
+			<div class='group'>		
+				<label>
+					All Feeds:
+					<input name='all_feeds' type='checkbox' />	
+				</label>
+				
+				<div class='include-only'>
+					<div class='title'>
+						Include only these feeds:
+						
+						<div class='filter'>
+							Filter:
+							<input type='search' class='filter' />						
+						</div>
+						<div class='filter'>
+							Select:
+							<a class='filter-select-all' href="#">All</a> / 
+							<a class='filter-select-none' href="#">None</a>							
+						</div>
+						
+					</div>
+					<ul class='feed-list'>
+						{{#each feeds}}
+						<li class='list-feed-item'>
+							<label>
+								
+								<div class='item-pre'>
+									<input name='feed_{{feed_id}}' type='checkbox' class='feed-checkbox'
+									{{#if selected}}checked="checked"{{/if}} />
+								</div>
+								<div class='item-content'>
+									<div class='site-name'>{{title}}</div>
+									<a href="{{site_url}}" target="_blank" class='site-url'>{{site_url}}</a>
+								</div>
+								
+								
+							</label>
+						</li>
+						{{/each}}
+					</ul>
+				</div>
+				
+				
+			</div>
+			<div class='group'>
+				<div class='loader'><span>☀</span>&nbsp;</div>
+				<input type='submit' value='Save Changes' />
+				<a class='cancel' href='#'>Cancel</a>
+				{{#if stream_id}}	
+				<a href="#" class='destroy-feed alert right' rel="{{stream_id}}">Delete</a>	
+				{{/if}}
+			</div>
+			
+			
+		</form>
+	
+	</div>
+	
+</div>

@@ -1,0 +1,48 @@
+<div id='login-popup' class='popup'>
+	
+	<div class='content' >
+		
+		<form>
+			<div class='title'>
+				<div class='app-title'><span>Reedify</span></div>	
+				<div class='feed-wrangle'></div>
+			</div>
+			
+			<div class='group login'>
+				
+				<p>Log in using Feed Wrangler <img src="/assets/feedwrangler-16.png" width="16" height="16" alt="Feed Wrangler Logo"></p>
+				
+				<input name='email' value='' type='email' placeholder="Email" />
+				<input name='password' value='' type='password' placeholder="Password" />
+				
+				<input type='submit' value='Log in' />	
+				<div class='loader'><span>☀</span>&nbsp;</div>	
+				
+				<div class='error'></div>
+									
+			</div>
+			
+			<div class='group'>
+				<br/></br/>
+				<div class='small'>
+					
+					<p>Reedify is an RSS client for <a href="http://feedwrangler.net/" target="_blank">Feed Wrangler</a>. If you don't have an account, you'll need to sign up. Absolutely no information is stored server-side by Reedify. It's just a dumb front-end client for Feed Wrangler's syncing platform.</p>
+					<p>Written by <a href="http://isaacwilliams.net" target="_blank">Isaac Williams</a>. Questions, bugs, etc: <a href="http://twitter.com/isaacwilliams" target="_blank">@isaacwilliams</a>.</p>
+					<!-- <p>Built with the help of Zepto, Handlebars, Coffeescript &amp; Sass</p> -->
+					
+				</div>		
+				
+				
+			</div>
+			
+			
+		</form>
+		
+	</div>
+	
+	<div class='app-version'>
+		<div>{{version}}</div>
+		<a href="/about" class="reedControl" >Change log</a>
+	</div>
+	
+</div>
