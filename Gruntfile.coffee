@@ -3,12 +3,17 @@ module.exports = (grunt)->
 	grunt.initConfig
 		pkg: grunt.file.readJSON('package.json')
 		uglify:
-			build:
+			dev:
 				options:
 					beautify: true
 					mangle: false
 				files:'lib/reedify.min.js': ['lib/vendor/*.js', 'lib/template.js', 'lib/reedify.js']
-		
+				
+			release:
+				options:
+					beautify: false
+					mangle: true
+				files:'lib/reedify.min.js': ['lib/vendor/*.js', 'lib/template.js', 'lib/reedify.js']		
 		coffee:
 			build:
 				options:
@@ -41,23 +46,31 @@ module.exports = (grunt)->
 			compile:
 				files:
 					"lib/style.css":"src/sass/style.scss"
-					
+
+		cssmin:
+			minify:
+				files: 
+					'lib/style.min.css':'lib/style.css'
+				
 		watch:
 			coffee:
 				files:'src/coffee/*.coffee'
-				tasks:['coffee', 'uglify']
+				tasks:['coffee', 'uglify:dev']
 			handlebars:
 				files:'src/templates/*.handlebars'
-				tasks:['handlebars', 'uglify']
+				tasks:['handlebars', 'uglify:dev']
 			sass:
 				files:'src/sass/*.scss'
-				tasks:['sass']
+				tasks:['sass','cssmin']
+			
 	
 	grunt.loadNpmTasks('grunt-contrib-coffee')
 	grunt.loadNpmTasks('grunt-contrib-uglify')	
 	grunt.loadNpmTasks('grunt-contrib-handlebars')
 	grunt.loadNpmTasks('grunt-contrib-sass')
 	grunt.loadNpmTasks('grunt-contrib-watch')
+	grunt.loadNpmTasks('grunt-contrib-cssmin')
 	
-	grunt.registerTask('default', [ 'coffee', 'handlebars', 'uglify', 'sass'])
+	grunt.registerTask('default', [ 'coffee', 'handlebars', 'uglify:dev', 'sass', 'cssmin'])
+	grunt.registerTask('release', [ 'coffee', 'handlebars', 'uglify:release', 'sass', 'cssmin'])
 	
