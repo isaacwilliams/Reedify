@@ -144,7 +144,7 @@ class AppRouter
 		$('body').addClass 'noscroll'
 		
 		$.ajax
-			url:'/readme.html'
+			url:'/assets/readme.html'
 			success:(data)->
 				$changesPopup.find('div.content div.about-content').html data
 				$changesPopup.find('div.content').animate 'login-popup-show', 
