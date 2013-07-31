@@ -72,7 +72,7 @@ div.popup{
 			}
 		}
 	
-		input{
+		input[type='text'], input[type='email'], input[type='password'] {
 			border: none;
 			border-bottom: 1px solid $color_read;
 			font-size: 1em;
@@ -107,6 +107,9 @@ div.popup{
 			color: white;
 			-webkit-border-radius:0; 
 			border-radius:0;
+		    -webkit-appearance: none;
+			font-size: 1em;
+			
 			&:hover{
 				background: black;
 			}

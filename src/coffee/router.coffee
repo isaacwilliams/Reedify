@@ -137,20 +137,10 @@ class AppRouter
 		
 		@getNav().selectNav ".feed_#{feedId}"
 	
-	showAbout:()->
-				
-		$changesPopup = $ window.reedify.templates.popup_about()
-		$('body').append $changesPopup
-		$('body').addClass 'noscroll'
+	showAbout:()->				
+		changesPopup = new ChangesPopupView()
+		$('body').append changesPopup.$el
 		
-		$.ajax
-			url:'/assets/readme.html'
-			success:(data)->
-				$changesPopup.find('div.content div.about-content').html data
-				$changesPopup.find('div.content').animate 'login-popup-show', 
-					duration:500
-					easing:'ease-out'
-	
 	userCheckAuth:()->
 		if app.user.accessToken then return true
 		@redirect "/login"

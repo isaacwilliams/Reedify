@@ -270,7 +270,7 @@ div.popup {
       div.popup div.content a.cancel:hover {
         color: black;
         text-decoration: underline; }
-    div.popup div.content input {
+    div.popup div.content input[type='text'], div.popup div.content input[type='email'], div.popup div.content input[type='password'] {
       border: none;
       border-bottom: 1px solid #646464;
       font-size: 1em;
@@ -281,7 +281,7 @@ div.popup {
       border-radius: 0;
       -webkit-appearance: none;
       outline: none; }
-      div.popup div.content input:focus {
+      div.popup div.content input[type='text']:focus, div.popup div.content input[type='email']:focus, div.popup div.content input[type='password']:focus {
         background: #f0f0f0;
         color: black; }
     div.popup div.content input.large {
@@ -296,7 +296,9 @@ div.popup {
       cursor: pointer;
       color: white;
       -webkit-border-radius: 0;
-      border-radius: 0; }
+      border-radius: 0;
+      -webkit-appearance: none;
+      font-size: 1em; }
       div.popup div.content input[type='submit']:hover {
         background: black; }
     div.popup div.content label {
@@ -844,6 +846,9 @@ div.item.current {
     color: #ff6400; }
     div.item.current a:hover {
       color: black; }
+
+div.item.unread.current {
+  box-shadow: -0.3em 0 0 #ff6400; }
 
 div.item.end div.content {
   margin-top: 0.5em;

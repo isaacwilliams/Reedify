@@ -316,6 +316,10 @@ div.item.current{
  	}	
 }
 
+div.item.unread.current{
+	box-shadow: -0.3em 0 0 $color_current;	
+}
+
 div.item.end{
 	div.content{
 		margin-top: 0.5em;

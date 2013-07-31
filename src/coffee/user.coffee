@@ -11,37 +11,10 @@ class UserData
 		Cookies.set( 'reedify.accessToken', accessToken, { expires:60*60*24*30 } )
 	
 	showLogin:()->
-		$loginPopup = $ @template { version:app.version }
-		$('body').append $loginPopup
-				
-		$loginPopup.find('div.content').animate 'login-popup-show', 
-			duration:500
-			easing:'ease-out'
+		loginPopup = new LoginPopupView()
+		$('body').append loginPopup.$el
 		
-		user = @
-		
-		$loginPopup.find('form').on 'submit', (e)->
-			
-			email = $loginPopup.find( 'input[name="email"]' ).val()
-			password = $loginPopup.find( 'input[name="password"]' ).val()
-			
-			$loginPopup.addClass 'loading'
-			
-			user.login email, password,
-				( data ) -> 
-										
-					$loginPopup.animate 'popup-hide', 
-						duration:250
-						easing:'ease-in-out'
-						complete:()-> 
-							$loginPopup.remove()
-					
-				( data ) ->
-					if data?.error
-						$loginPopup.find('.error').html data.error
-					$loginPopup.removeClass 'loading'
-					
-			return false
+		loginPopup.showPopup()
 		
 	login:( email, password, success, error )->
 		app.wrangler.query 'users/authorize', { email:email, password:password }, 
@@ -59,3 +32,5 @@ class UserData
 		Cookies.expire 'reedify.accessToken'
 		localStorage.setItem( "reedify.userStreams", null )
 		localStorage.setItem( "reedify.userFeeds", null )
+		
+		
